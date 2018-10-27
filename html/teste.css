@@ -1,0 +1,41 @@
+.classe1{
+	font-weight: lighter; 
+}
+
+.classe2{
+	text-decoration: line-through;
+}
+
+.classe3{
+	color: red;
+}
+
+.classe4{
+	border: solid;
+	border-color: yellow;
+}
+
+.classe5{
+	font-size: 30px;
+	font-style: italic;
+	font-weight: bold;
+	color: red;
+	border: 2px solid;
+	border-color: gray;
+	background-color: #eaf1fc;
+	height: 120px;
+}
+
+.classe6{
+	font-size: 15px;
+	font-style: italic;
+	font-weight: bold;
+	background-color: #fcfcc2;
+}
+ 
+
+ .classe7{
+	font-size: 15px;
+	font-weight: bold;
+}
+ 

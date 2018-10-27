@@ -1,0 +1,36 @@
+create table cliente(
+ID serial primary key,
+Nome varchar not null,
+Senha varchar not null,
+Login varchar not null,
+Endereco varchar not null,
+Cidade varchar not null,
+Bairro varchar not null
+);
+
+
+
+select  from cliente;
+
+
+drop table cliente;
+
+insert into cliente (Nome,Senha,Login,Endereco,Cidade,bairro) values ('JOAO','SENHA1','LOGIN1','RUA AAA', 'CIDADE1','BAIRRO1');
+insert into cliente (Nome,Senha,Login,Endereco,Cidade,bairro) values ('MARIA','SENHA2','LOGIN2','RUA BBB', 'CIDADE2','BAIRRO2');
+insert into cliente (Nome,Senha,Login,Endereco,Cidade,bairro) values ('PEDRO','SENHA3','LOGIN3','RUA CCC', 'CIDADE3','BAIRRO3');
+insert into cliente (Nome,Senha,Login,Endereco,Cidade,bairro) values ('THAIS','SENHA4','LOGIN4','RUA DDD', 'CIDADE4','BAIRRO4');
+insert into cliente (Nome,Senha,Login,Endereco,Cidade,bairro) values ('JESSICA','SENHA5','LOGIN5','RUA EEE', 'CIDADE5','BAIRRO5');
+
+
+
+update cliente set nome='ROGER' where id=1;
+
+update cliente set nome='THAIS' where cpf='77777777777';
+
+delete from cliente where id=4;
+
+update cliente set id=111 where id=11;
+
+update cliente set nome='ROGER';
+
+delete from cliente;
