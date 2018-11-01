@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+	
+	function validar(){
+
+		var idade=document.getElementById("idade").value;
+
+		if(isNaN(idade)){
+			document.write("Não é número.");
+		}else{
+			verificarIdade(idade)
+		}
+	}
+	function verificarIdade(idade){
+
+		if(idade < 12 ){
+			document.write("Criança");
+		} else 	if(idade < 14 ){
+			document.write("Pré-adolescente");
+		} else 	if(idade < 18 ){
+			document.write("Adolescente");
+		} else 	if(idade < 60 ){
+			document.write("Adulto");
+		}else{
+			document.write("Idoso");
+		}
+
+		var moto={
+			Marca: "Honda",
+			Cor: "Preta",
+		}
+
+		for(descricao in moto)
+		{
+			console.log(descricao+" -- "+moto[descricao]);
+		}
+
+		console.log("Fim funcao verificarIdade")
+	}
+
+</script>
+	<title>TESTE 8</title>
+</head>
+<body>
+	<form name="form1" >
+		<label>Idade:</label><input type="text" id="idade" required>			
+		<input type="button" value="Verificar" onclick="validar();">
+	</form>
+</body>
+</html>
