@@ -4,5 +4,7 @@ git init
 git add .
 git status
 git commit -m "first commit"
+git config --global user.email "brunostinger@outlook.com"
+git config --global user.name "brunostinger"
 git remote add origin https://github.com/brunostinger/aulajava.git
 git push -u origin master
