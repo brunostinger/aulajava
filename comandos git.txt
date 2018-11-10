@@ -1,6 +1,10 @@
 echo "# aulajava" >> README.md
 git status
 git init
+git clone https://github.com/brunostinger/aulajava.git
+cd aulajava
+
+
 git add .
 git status
 git commit -m "first commit"
