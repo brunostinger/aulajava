@@ -34,6 +34,7 @@ public class ControleLivro extends HttpServlet {
 
 		String acao = request.getParameter("acao");
 		String pagina="";
+		String titulo = request.getParameter("titulo");;
 			
 		if(acao.equals("deletar")) {						
 			pagina=LISTAR_LIVROS;
@@ -49,6 +50,10 @@ public class ControleLivro extends HttpServlet {
 		 else if(acao.equals("listarTodos")){
 			 pagina=LISTAR_LIVROS;
 			 request.setAttribute("livros", livroDao.listarTodos());
+		}
+		 else if(acao.equals("buscarLivros")){
+			 pagina=LISTAR_LIVROS;
+			 request.setAttribute("livros", livroDao.consultar(titulo));
 		}else {
 			 pagina=INSERIR_OU_EDITAR;
 		}

@@ -10,10 +10,18 @@
 
 </head>
 <body>
-<table class="table">
-<thead class="thead-dark">
-	<tr>
-		
+<p>
+<div>
+<form class="form-inline" method="get" action="ControleLivro?">
+	<input type="text" name="titulo" class="form-control" id="titulo">
+	<input type="submit" value="Buscar" class="btn btn-default">
+	<input type="hidden" name="acao" id="acao" value="buscarLivros">
+</form>
+</div>
+<p>
+<table class="table table-bordered table-striped">
+<thead class="">
+	<tr>		
 		<th><label>Código</label></th>
 		
 		<th><label>Titulo</label></th>
@@ -43,6 +51,8 @@
  </c:forEach>
  </tbody>
 </table>
-<p><a href="ControleLivro?acao=inserir"><input type="button" class="button" value='Novo'></a>
+
+
+<a href="ControleLivro?acao=inserir"><input type="button" class="btn btn-primary" value='Novo'></a>
 </body>
 </html>

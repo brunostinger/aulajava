@@ -15,10 +15,10 @@ import util.FabricaConexao;
 public class LivroDao {
 
 	private static final String OBTER_POR_ID_SQL = "SELECT * FROM LIVRO WHERE COD_LIVRO = ?";
-	private static final String CONSULTAR_SQL = "SELECT * FROM LIVRO WHERE TITULO LIKE ?";
+	private static final String CONSULTAR_SQL = "SELECT * FROM LIVRO WHERE TITULO LIKE ? order by COD_LIVRO ASC";
 	private static final String LISTAR_TODOS = "SELECT * FROM LIVRO ORDER BY COD_LIVRO ASC";
 	private static final String UPDATE_SQL = "UPDATE LIVRO SET TITULO = ?, AUTOR = ?, DESCRICAO = ?, PRECO = ? WHERE COD_LIVRO = ?";
-	private static final String INSERT_SQL="Insert into livro (titulo, autor, preco, imagem) values(?,?,?,?);";
+	private static final String INSERT_SQL="Insert into livro (titulo, autor, preco, imagem,descricao) values(?,?,?,?,?);";
 	private static final String DELETE_SQL="DELETE FROM LIVRO WHERE COD_LIVRO = ?";
 
 	public Livro consultar(int codigo) {
@@ -138,7 +138,8 @@ public class LivroDao {
 		ps.setString(2, livro.getAutor());
 		ps.setDouble(3, livro.getPreco());
 		ps.setString(4, livro.getImagem());
-		
+		ps.setString(5, livro.getDescricao());
+
 		ps.executeUpdate();
 		}catch (SQLException e) {
 			e.printStackTrace();
