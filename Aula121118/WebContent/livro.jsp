@@ -28,7 +28,6 @@
 								<input type="text" class="form-control" name="titulo" id="titulo" value="${livro.titulo}" required>
 							</div>
 
-
 							<div class="form-group">
 								<label for="login">Autor</label>
 								<input type="text" class="form-control" name="autor" id="autor" value="${livro.autor}" required>

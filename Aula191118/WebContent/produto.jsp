@@ -9,7 +9,7 @@
 <body>
 	<div class="col-sm-11">
 		<div class="panel panel-primary">
-			<div class="panel-heading">Cadastro</div>
+			<div class="panel-heading">Cadastrar / Editar</div>
 			<div class="panel-body">
 
 
@@ -31,29 +31,24 @@
 
 							<div class="form-group">
 								<label >Descrição</label>
-								<input type="text" class="form-control" name="autor" id="autor" value="${produto.descricao}" required>
-							</div>
-							
-							<div class="form-group">
-								<label for="login">Valor</label>
-								<input type="text" class="form-control" name="descricao" id="descricao" value="${produto.descricao}">
+								<input type="text" class="form-control" name="descricao" id="descricao" value="${produto.descricao}" required>
 							</div>
 							
 									
 							<div class="form-group">
 								<label >Valor</label>
-								<input type="text" class="form-control" name="valor" id="valor" value="${produto.valor}">
+								<input type="text" class="form-control" name="valor" id="valor" value="${produto.valor}" required>
 							</div>														
 
 							<div class="form-group">
 								<label >Quantidade</label>
-								<input type="text" class="form-control" name="quantidade" id="quantidade" value="${produto.quantidade}">
+								<input type="text" class="form-control" name="quantidade" id="quantidade" value="${produto.quantidade}" required>
 							</div>		
 							
 							
 							<div class="form-group">
 								<label >Unidade</label>
-								<input type="text" class="form-control" name="unidade" id="unidade" value="${produto.unidade}">
+								<input type="text" class="form-control" name="unidade" id="unidade" value="${produto.unidade}" required>
 							</div>	
 							
 						</fieldset>

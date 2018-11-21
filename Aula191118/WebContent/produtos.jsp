@@ -12,6 +12,17 @@
 <body>
 <div class="col-sm-11">
 
+<p>
+<div>
+<form class="form-inline" method="get" action="ControleProduto?">
+	<input type="text" name="filtroAplicar" class="form-control" id="filtroAplicar">
+	<input type="submit" value="Buscar" class="btn btn-default">
+	<input type="hidden" name="acao" id="acao" value="filtrarProdutos">
+</form>
+</div>
+<p>
+
+
 <table class="table table-bordered table-striped">
 <thead class="">
 	<tr>		
