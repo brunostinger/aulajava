@@ -26,19 +26,19 @@
 <table class="table table-bordered table-striped">
 <thead class="">
 	<tr>		
-		<th><label>Código</label></th>
+		<th width="80"><label>Código</label></th>
 		
 		<th><label>Nome</label></th>
 		
 		<th><label>Descricão</label></th>
 			
-		<th><label>Valor</label></th>
+		<th width="80"><label>Valor</label></th>
 		
-		<th><label>Qtd</label></th>
+		<th width="80"><label>Qtd</label></th>
 		
-		<th><label>Un</label></th>
+		<th width="60"><label>Un</label></th>
 			
-		<th colspan='2'><label>Acão</label></th>
+		<th colspan='2' width="150"><label>Acão</label></th>
 			
 	</tr>
 </thead>
@@ -53,8 +53,8 @@
   			<td><c:out value="${produto.quantidade}"></c:out></td> 
   			<td><c:out value="${produto.unidade}"></c:out></td>  	
   			 	
-  			<td><a href="ControleProduto?acao=editar&idproduto=${produto.idProduto}">Update</a></td>
-  			<td><a href="ControleProduto?acao=deletar&idproduto=${produto.idProduto}">Deletar</a></td>  			
+  			<td width="70"><a href="ControleProduto?acao=editar&idproduto=${produto.idProduto}">Atualizar</a></td>
+  			<td width="70"><a href="ControleProduto?acao=deletar&idproduto=${produto.idProduto}">Deletar</a></td>  			
 	</tr>
  </c:forEach>
  </tbody>

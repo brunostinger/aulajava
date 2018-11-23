@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,7 +88,6 @@ public class ProdutoDao {
 		}
 	}
 	public Produto buscarProduto(int idProduto) {
-		
 		Produto produto = null;
 		try (Connection conexao = FabricaConexao.getConexao();
 			PreparedStatement consulta = conexao.prepareStatement(BUSCARDADOSPRODUTO_SQL );) {
@@ -104,6 +104,9 @@ public class ProdutoDao {
 				produto.setValor(resultado.getDouble("valor"));
 				produto.setQuantidade(resultado.getDouble("quantidade"));
 				produto.setUnidade(resultado.getString("unidade"));
+				
+
+				
 			}
 
 			resultado.close();

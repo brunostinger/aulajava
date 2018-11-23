@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Teste JSF</title>
+    </h:head>
+    <h:body> Teste JSF 2 8 <p/>
+        <h:form>
+            	Mensagens vindas do managed bean @(ManagedBean):<p/>
+            	<h:outputText value="#{testeJSF.message}" /><br/>
+       			<h:outputText value="#{testeJSF.message2}" /><p/>    
+       			<h:outputLabel>Mensagens vindas do managed bean @(ManagedBean) e inicializadas no @PostConstruct</h:outputLabel>   	
+        </h:form>
+    </h:body>
+</html>
