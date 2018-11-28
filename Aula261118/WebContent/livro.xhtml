@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"  xmlns:f="http://java.sun.com/jsf/core" >
+    <h:head>
+        <title>Teste JSF</title>
+    </h:head>   
+    <h:body> Teste JSF 2 8 <p/>
+        <h:panelGroup rendered="#{not empty livroMB.listaLivro}">    
+	        <h:dataTable value="#{livroMB.listaLivro}" var="item">            	
+	       			<h:column> <f:facet name="header">Código</f:facet>#{item.codigo}</h:column><br/>   
+	       			<h:column> <f:facet name="header">Titulo</f:facet>#{item.titulo}</h:column><br/>   
+	       			<h:column> <f:facet name="header">Autor</f:facet>#{item.autor}</h:column><br/>   
+	       			<h:column> <f:facet name="header">Preço</f:facet>#{item.preco}</h:column><br/>   
+	       			<h:column> <f:facet name="header">Descrição</f:facet>#{item.descricao}</h:column><br/>         			     			 
+	        </h:dataTable>
+        </h:panelGroup>       
+        
+        <h:panelGroup rendered="#{empty livroMB.listaLivro}">
+        	<h1>Nenhum livro encontrado</h1>
+        </h:panelGroup>    
+    </h:body>    
+</html>

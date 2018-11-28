@@ -17,7 +17,7 @@ public class PessoaMB {
 		System.out.println("**** Entrou metodo init ****");
 		pessoa = new Pessoa();
 		
-		pessoa.setNome("Bruno Roger");
+		pessoa.setNome("Bruno R");
 		pessoa.setIdade(28);
 		pessoa.setSexo("M");	
 	}
