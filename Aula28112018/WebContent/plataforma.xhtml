@@ -9,12 +9,36 @@
   <h:body>
     <div align="center"  >
         
-        <h:form>
-        	<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"></p:messages>        	
+        <h:form>        	
+		<p:growl id="growl" showDetail="true" life="2000"></p:growl>   
+		<p:messages id="messages" autoUpdate="true"></p:messages>
+		<div align="center">
+		<h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5"></h:panelGrid>
+			<h:outputText value="Escolha a plataforma"></h:outputText><p/>
+			<p:selectOneButton value="#{imagesView.option}">
+				<f:selectItem itemLabel="Xbox" itemValue="Xbox"></f:selectItem>
+				<f:selectItem itemLabel="PS4" itemValue="PS4"></f:selectItem>
+				<f:selectItem itemLabel="Wii" itemValue="Wii"></f:selectItem>	
+
+<!-- 			Atualiza somente o componente com o ID correspondente-->				
+				<!-- <p:ajax update="imagens"/>	 -->
+				
+<!-- 			Atualiza todo o formulario-->				
+				<p:ajax update="@form, imagens"/>						
+			</p:selectOneButton>
+		
+		</div>	
+		
+		<p/>
+		<div align="center">
+			<p:commandButton value="Selecionar" update="imagens, growl" icon="ui-icon-check"></p:commandButton>
+			<p:spacer></p:spacer>
+		</div>	 
+		      	
         </h:form>   
              
-		<p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-		    <p:graphicImage name="/img/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+		<p:galleria value="#{imagesView.images}" id="imagens" var="image" panelWidth="800" panelHeight="313" showCaption="true">
+		    <p:graphicImage  width="225" height="225" name="/img/#{image}" alt="Image Description for #{image}" title="#{image}"/>
 		</p:galleria>
 
 	</div>
