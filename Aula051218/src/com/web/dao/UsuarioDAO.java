@@ -19,42 +19,97 @@ public class UsuarioDAO {
 	public Usuario getUsuarioCard(String nomeUsuario, String matricula) {
 
 		try {
-			Usuario usuario =  (Usuario) 
-					em.createQuery("Select u from Usuario u where u.nomeUsuario = :name and u.matricula = :matricula")
+			Usuario usuario = (Usuario) em
+					.createQuery("Select u from Usuario u where u.nomeUsuario = :name and u.matricula = :matricula")
 					.setParameter("name", nomeUsuario).setParameter("matricula", matricula).getSingleResult();
-		
-			return usuario;			
-		}catch (Exception e) {
+
+			return usuario;
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
+
 	public Usuario getUsuario(String nomeUsuario, String senha) {
 
 		try {
-			Usuario usuario =  (Usuario) 
-					em.createQuery("Select u from Usuario u where u.nomeUsuario = :name and u.senha = :senha")
+			Usuario usuario = (Usuario) em
+					.createQuery("Select u from Usuario u where u.nomeUsuario = :name and u.senha = :senha")
 					.setParameter("name", nomeUsuario).setParameter("senha", senha).getSingleResult();
-		
-			return usuario;			
-		}catch (Exception e) {
+
+			return usuario;
+		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public Usuario consultarUsuario(int id) {
+		try{
+			return em.find(Usuario.class, id);
+		}catch (Exception e) {
 			return null;
 		}
 	}
 	
 	public List listarUsuario() {
-		
-		Query queryObj = em.createQuery("Select u from usuario u");
+
+		Query queryObj = em.createQuery("Select u from Usuario u");
 		List usuarioList = queryObj.getResultList();
-		
-		if(usuarioList!=null && usuarioList.size()>0) {
+
+		if (usuarioList != null && usuarioList.size() > 0) {
 			return usuarioList;
-		}
-		else {
+		} else {
 			return null;
 		}
-			
+
 	}
+
+	public boolean deletarUsuario(Usuario usuario) {
+		if (!transaction.isActive()) {
+			transaction.begin();
+		}
+
+		try {
+			em.merge(usuario);
+			em.remove(usuario);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean editarUsuario(Usuario usuario) {
+		if (!transaction.isActive()) {
+			transaction.begin();
+		}
+
+		try {
+			em.merge(usuario);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
+	public boolean inserirUsuario(Usuario usuario) {
+		if (!transaction.isActive()) {
+			transaction.begin();
+		}
+
+		try {
+			em.persist(usuario);
+			transaction.commit();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 }
