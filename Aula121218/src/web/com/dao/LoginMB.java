@@ -1,4 +1,4 @@
-package com.web.controle;
+package web.com.dao;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -7,8 +7,9 @@ import javax.faces.context.FacesContext;
 
 import org.apache.catalina.Context;
 
-import com.web.dao.UsuarioDAO;
-import com.web.model.Usuario;
+import web.com.modelo.Usuario;
+
+
 
 @RequestScoped
 @ManagedBean(name = "loginMB")
@@ -27,7 +28,7 @@ public class LoginMB {
 		}else {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
 			facesContext.getExternalContext().getSessionMap().put("logado", true);
-			return "/restrito/listagemUsuarios?faces-redirect=true";
+			return "/restrito/listaProdutos?faces-redirect=true";
 		}
 	}
 

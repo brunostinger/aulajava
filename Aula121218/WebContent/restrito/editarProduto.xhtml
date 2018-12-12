@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+     
+    <h:head>
+     <h:outputStylesheet library="css" name="bootstrap.css"/>
+     <title>JSF JPA CRUD EXAMPLE</title>
+	     <style type="text/css">
+		     	.btnWidth{
+		     	 	width: 80%;
+		     	}
+		     	
+		     	.com-sm-updated{
+		     	 	passing-top:7px;
+		     	}
+		     	
+		        .com-sm-updated a{
+		     	 	margin-left:30px;
+		     	 	text-decoration: none !important;
+		     	}
+		     	
+		     	.com-sm-27{
+		     		width: 27% !important;
+		     	}
+	     </style>
+    </h:head>
+ 
+    <h:body>
+	<div class="col-sm-8">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Novo Produto</div>
+			<div class="panel-body">
+			
+        <h:form styleClass="form-horizontal">
+        <h:messages class="text text-danger"/>
+		 <div class="row">
+			<fieldset>
+			
+	
+			<div class="form-group">
+			    <h:outputLabel for="produto-id" styleClass="control-labbel col-sm-4">Id:</h:outputLabel>
+			    <div class="col-sm-4">
+			    	<h:inputText id="produto-id" disabled="true" value="#{produtoMB.produto.id}" styleClass="form-control" />
+			    </div>
+			</div>
+			
+			<div class="form-group">
+			    <h:outputLabel for="produto-name" styleClass="control-labbel col-sm-4">Nome:</h:outputLabel>
+			    <div class="col-sm-4">
+			    	<h:inputText id="produto-name" value="#{produtoMB.produto.nome}" styleClass="form-control" required="true" requiredMessage="O nome do produto não pode estar vazio"/>
+			    </div>
+			    <h:message for="produto-name" styleClass="text text-danger" />
+			</div>
+			
+			<div class="form-group">
+			    <h:outputLabel for="descricao" styleClass="control-labbel col-sm-4">Descrição:</h:outputLabel>
+			    <div class="col-sm-4">
+			    	<h:inputText id="produto-descricao" value="#{produtoMB.produto.descricao}" styleClass="form-control" required="true" requiredMessage="A descrição não pode estar vazia"/>
+			    </div>
+			    <h:message for="produto-descricao" styleClass="text text-danger" />
+			</div>		
+	
+	
+			<div class="form-group">
+			    <h:outputLabel for="fornecedor" styleClass="control-labbel col-sm-4">Fornecedor:</h:outputLabel>
+			    <div class="col-sm-4">
+			    	<h:inputText id="produto-fornecedor" value="#{produtoMB.produto.fornecedor}" styleClass="form-control" required="true" requiredMessage="O fornecedor não pode estar vazio"/>
+			    </div>
+			    <h:message for="produto-fornecedor" styleClass="text text-danger" />
+			</div>	
+
+			<div class="form-group">
+			    <h:outputLabel for="valor" styleClass="control-labbel col-sm-4">Valor:</h:outputLabel>
+			    <div class="col-sm-4">
+			    	<h:inputText id="produto-valor" value="#{produtoMB.produto.valor}" styleClass="form-control" required="true" requiredMessage="O valor não pode estar vazio"/>
+			    </div>
+			    <h:message for="produto-valor" styleClass="text text-danger" />
+			</div>		
+			
+			<div class="form-group">
+			    <div class="col-sm-8" align="left">						 
+					 	<h:commandButton action="#{produtoMB.incluirprodutoDb(produtoMB.produto)}" value="Salvar" styleClass="btn-primary" /> 
+				</div>	 
+			</div>
+			
+			<div class="col-sm-updated">
+				<h:outputLink value="listaProdutos.xhtml">Ver lista de produtos</h:outputLink>
+			</div>
+			
+		   </fieldset>
+		 </div>		 	
+        
+        </h:form>
+        
+       </div>
+       </div>
+       </div>     
+    </h:body>
+</html>

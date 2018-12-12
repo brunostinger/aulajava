@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+     
+    <h:head>
+     <h:outputStylesheet library="css" name="bootstrap.css"/>
+     <title>JSF JPA CRUD EXAMPLE</title>
+	     <style type="text/css">
+		     	.tableUpdated{
+		     	 width: 90% !important;
+		     	 margin: 17px 58px 0 !important;
+		     	}
+		     	
+		     	.btnSpace{
+		     		margin: 17px ;
+		     	}
+	     </style>
+    </h:head>
+ 
+    <h:body>
+    	<center>
+	    	<h2>	
+   	 			<h:outputText value="Lista de produtos cadastrados"/>
+	    	</h2>
+    	</center>
+        <h:form id="produtoForm">
+			<h:dataTable id="produtoTable" value="#{produtoMB.listaProduto}" var="produto" styleClass="table table-striped table-bordered tableUpdated">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{produto.id}"></h:outputText>
+				</h:column>
+			
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{produto.nome}"></h:outputText>
+				</h:column>
+			
+			 	<h:column>
+					<f:facet name="header">Descricao</f:facet>
+					<h:outputText value="#{produto.descricao}"></h:outputText>
+				</h:column>
+				
+				
+				<h:column>
+					<f:facet name="header">Fornecedor</f:facet>
+					<h:outputText value="#{produto.fornecedor}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Valor</f:facet>
+					<h:outputText value="#{produto.valor}"></h:outputText>
+				</h:column>
+				
+ 				<h:column>
+					<f:facet name="header">Update</f:facet>
+						<h:commandButton action="#{produtoMB.paginaEditar(produto)}" value="Atualizar" styleClass="btn btn-primary" />
+				</h:column>
+
+
+				<h:column>
+					<f:facet name="header">Delete</f:facet>
+					<h:commandButton action="#{produtoMB.deletarProduto(produto)}" value="Deletar" styleClass="btn btn-danger" />
+				</h:column>
+												
+			</h:dataTable>	
+ 			<center>
+			  	<h:commandButton action="novoProduto.xhtml?faces-redirect=true" value="Adicionar" styleClass="btn btn-succes btnSpace" />		  	
+			</center> 
+        </h:form>
+    </h:body>
+</html>

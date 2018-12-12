@@ -1,4 +1,4 @@
-package com.web.model;
+package web.com.modelo;
 
 import java.util.Date;
 

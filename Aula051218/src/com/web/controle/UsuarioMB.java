@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -44,17 +45,23 @@ public class UsuarioMB {
 	}
 	
 	public String incluirUsuarioDb(Usuario usuario) {
-		usuarioDAO.inserirUsuario(usuario);
-		return "/listagemUsuarios";
+		if(!usuarioDAO.inserirUsuario(usuario)) {
+			FacesContext facesContext = FacesContext.getCurrentInstance();
+			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro, usuário já existe",null));
+			facesContext.getExternalContext().getFlash().setKeepMessages(true);
+			
+			return "/restrito/novoUsuario?faces-redirect=true";
+		}
+		return "/restrito/listagemUsuarios?faces-redirect=true";
 	}
 	
 	public String paginaEditar(Usuario usuario) {
-		return"/editarUsuario?faces-redirect=true&id="+usuario.getId();
+		return"/restrito/editarUsuario?faces-redirect=true&id="+usuario.getId();
 	}
 	
 	public String editarUsuarioDb(Usuario usuario) {
 		usuarioDAO.editarUsuario(usuario);
-		return "/listagemUsuarios";
+		return "/restrito/listagemUsuarios?faces-redirect=true";
 	}
 	
 }
